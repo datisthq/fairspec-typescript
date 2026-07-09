@@ -48,7 +48,7 @@ describe("loadXlsxTable (format=xlsx)", () => {
 
     it.skip("should load remote file", async () => {
       const table = await loadXlsxTable({
-        data: "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/xlxs/table/fixtures/table.xlsx",
+        data: "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/xlxs/table/fixtures/table.xlsx",
       })
 
       expect((await table.collect()).toRecords()).toEqual([
@@ -60,8 +60,8 @@ describe("loadXlsxTable (format=xlsx)", () => {
     it.skip("should load multipart remote file", async () => {
       const table = await loadXlsxTable({
         data: [
-          "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/xlxs/table/fixtures/table.xlsx",
-          "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/xlxs/table/fixtures/table.xlsx",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/xlxs/table/fixtures/table.xlsx",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/xlxs/table/fixtures/table.xlsx",
         ],
       })
 
@@ -245,7 +245,7 @@ describe("loadXlsxTable (format=ods)", () => {
 
     it.skip("should load remote file", async () => {
       const table = await loadXlsxTable({
-        data: "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/ods/table/fixtures/table.ods",
+        data: "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/ods/table/fixtures/table.ods",
         fileDialect: { format: "ods" },
       })
 
@@ -258,8 +258,8 @@ describe("loadXlsxTable (format=ods)", () => {
     it.skip("should load multipart remote file", async () => {
       const table = await loadXlsxTable({
         data: [
-          "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/ods/table/fixtures/table.ods",
-          "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/ods/table/fixtures/table.ods",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/ods/table/fixtures/table.ods",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/ods/table/fixtures/table.ods",
         ],
         fileDialect: { format: "ods" },
       })

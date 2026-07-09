@@ -19,7 +19,7 @@
   ],
   "license": "MIT",
   "author": "Evgeny Karev",
-  "repository": "https://github.com/fairspec/fairspec-typescript",
+  "repository": "https://github.com/datisthq/fairspec-typescript",
   "files": [
     "build"
   ],

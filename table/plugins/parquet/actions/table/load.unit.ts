@@ -36,7 +36,7 @@ describe("loadParquetTable", () => {
 
     it.skip("should load remote file", async () => {
       const table = await loadParquetTable({
-        data: "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/parquet/table/fixtures/table.parquet",
+        data: "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/parquet/table/fixtures/table.parquet",
       })
 
       expect((await table.collect()).toRecords()).toEqual([
@@ -48,8 +48,8 @@ describe("loadParquetTable", () => {
     it.skip("should load remote file (multipart)", async () => {
       const table = await loadParquetTable({
         data: [
-          "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/parquet/table/fixtures/table.parquet",
-          "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/parquet/table/fixtures/table.parquet",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/parquet/table/fixtures/table.parquet",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/parquet/table/fixtures/table.parquet",
         ],
       })
 

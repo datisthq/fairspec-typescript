@@ -44,7 +44,7 @@ const folder = await loadDataset("./datasets/sales")
 
 const zip = await loadDataset("./datasets/sales.zip")
 
-const repo = await loadDataset("https://github.com/fairspec/example-dataset")
+const repo = await loadDataset("https://github.com/datisthq/example-dataset")
 ```
 
 The returned value is a `Dataset` — a JSON-compatible object containing `resources`, metadata fields, and any extension properties.

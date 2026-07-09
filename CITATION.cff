@@ -8,7 +8,7 @@ authors:
     given-names: Evgeny
     email: eskarev@gmail.com
 url: "https://typescript.fairspec.org"
-repository-code: "https://github.com/fairspec/fairspec-typescript"
+repository-code: "https://github.com/datisthq/fairspec-typescript"
 license: MIT
 keywords:
   - fair

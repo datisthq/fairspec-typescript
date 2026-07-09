@@ -40,7 +40,7 @@ describe("loadArrowTable", () => {
 
     it.skip("should load remote file", async () => {
       const table = await loadArrowTable({
-        data: "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/arrow/table/fixtures/table.arrow",
+        data: "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/arrow/table/fixtures/table.arrow",
       })
 
       expect((await table.collect()).toRecords()).toEqual([
@@ -52,8 +52,8 @@ describe("loadArrowTable", () => {
     it.skip("should load remote file (multipart)", async () => {
       const table = await loadArrowTable({
         data: [
-          "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/arrow/table/fixtures/table.arrow",
-          "https://github.com/fairspec/fairspec-typescript/raw/refs/heads/main/table/plugins/arrow/table/fixtures/table.arrow",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/arrow/table/fixtures/table.arrow",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/arrow/table/fixtures/table.arrow",
         ],
       })
 

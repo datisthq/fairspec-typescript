@@ -42,7 +42,7 @@ describe("loadJsonTable", () => {
 
     it.skip("should load remote file", async () => {
       const table = await loadJsonTable({
-        data: "https://github.com/fairspect/fairspect-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.json",
+        data: "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.json",
       })
 
       expect((await table.collect()).toRecords()).toEqual([
@@ -54,8 +54,8 @@ describe("loadJsonTable", () => {
     it.skip("should load remote file (multipart)", async () => {
       const table = await loadJsonTable({
         data: [
-          "https://github.com/fairspect/fairspect-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.json",
-          "https://github.com/fairspect/fairspect-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.json",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.json",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.json",
         ],
       })
 
@@ -168,7 +168,7 @@ describe("loadJsonTable (format=jsonl)", () => {
 
     it.skip("should load remote file", async () => {
       const table = await loadJsonTable({
-        data: "https://github.com/fairspec/fairspect-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.jsonl",
+        data: "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.jsonl",
         fileDialect: { format: "jsonl" },
       })
 
@@ -181,8 +181,8 @@ describe("loadJsonTable (format=jsonl)", () => {
     it.skip("should load remote file (multipart)", async () => {
       const table = await loadJsonTable({
         data: [
-          "https://github.com/fairspec/fairspect-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.jsonl",
-          "https://github.com/fairspec/fairspect-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.jsonl",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.jsonl",
+          "https://github.com/datisthq/fairspec-typescript/raw/refs/heads/main/table/plugins/json/table/fixtures/table.jsonl",
         ],
         fileDialect: { format: "jsonl" },
       })
