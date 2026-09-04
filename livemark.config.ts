@@ -6,7 +6,7 @@ export default defineConfig({
   description: "Data management framework",
   logo: "/logo.svg",
   favicon: "/logo.png",
-  include: ["README.md", "docs/**/*.md", "CONTRIBUTING.md"],
+  include: ["README.md", "project/docs/**/*.md", "CONTRIBUTING.md"],
   sections: [
     {
       type: "custom",

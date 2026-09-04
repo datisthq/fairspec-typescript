@@ -49,7 +49,7 @@ metadata ─┬─► dataset ───┐
 - `mcp-server` — MCP tools over the library actions, served over stdio as `fairspec mcp`.
 - `terminal` — the `fairspec` CLI (commander), one command group per entity.
 - `fairspec` — umbrella package re-exporting `@fairspec/library` and shipping the CLI binary.
-- `project` — the agent skills in `skills/` (reached as `.claude/skills`) and the docs guard in `-test/`. Private and outside the DAG: nothing depends on it, which is why the skills live here rather than in a package something imports.
+- `project` — the documentation site in `docs/`, the agent skills in `skills/` (reached as `.claude/skills`), and the docs guard in `-test/`. Private and outside the DAG: nothing depends on it, which is why the skills live here rather than in a package something imports.
 
 ## Code structure
 
