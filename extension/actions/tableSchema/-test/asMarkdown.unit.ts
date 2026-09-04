@@ -1,6 +1,6 @@
 import type { TableSchema } from "@fairspec/metadata"
 import { describe, expect, it } from "vite-plus/test"
-import { renderTableSchemaAsMarkdown } from "./asMarkdown.ts"
+import { renderTableSchemaAsMarkdown } from "../asMarkdown.ts"
 
 describe("renderTableSchemaAsMarkdown", () => {
   it("converts a simple schema to markdown table", () => {

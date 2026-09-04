@@ -1,6 +1,6 @@
 import type { TableSchema } from "@fairspec/metadata"
 import { describe, expect, it } from "vite-plus/test"
-import { renderTableSchemaAsHtml } from "./asHtml.tsx"
+import { renderTableSchemaAsHtml } from "../asHtml.tsx"
 
 describe("renderTableSchemaAsHtml", () => {
   it("converts a simple schema to html table", () => {
