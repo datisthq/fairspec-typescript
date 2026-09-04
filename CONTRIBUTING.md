@@ -6,27 +6,28 @@ Thank you for your interest in contributing to Fairspec TypeScript! This documen
 
 Project is a monorepo with the following packages:
 
-- `@faispec/metadata`: Core metadata functionality
-- `@faispec/dataset`: File-related functionality
-- `@faispec/table`: Table-related functionality
-- `@faispec/extension`: Extensions related functionality
-- `@faispec/library`: All the above functionality
-- `@faispec/terminal`: Terminal interface
-- `faispec`: Meta-package that re-exports the underlying functionality
+- `@fairspec/metadata`: Core metadata models and descriptors
+- `@fairspec/dataset`: File, folder and stream I/O plus dataset source plugins
+- `@fairspec/table`: Polars-backed table engine plus file format plugins
+- `@fairspec/extension`: Table schema renderers
+- `@fairspec/library`: All the above functionality behind one plugin registry
+- `@fairspec/agent`: MCP tools over the library actions
+- `@fairspec/terminal`: Terminal interface
+- `fairspec`: Meta-package that re-exports the underlying functionality
 
 ## Development Environment
 
 ### Prerequisites
 
 - **Node**: v24.0.0 or higher
-- **PNPM**: v10.0.0 or higher
+- **PNPM**: v11.0.0 or higher
 
 ### Setup
 
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/yourusername/fairspec-typescript.git fairspec-typescript
+   git clone https://github.com/datisthq/fairspec-typescript.git fairspec-typescript
    cd fairspec-typescript
    ```
 
@@ -39,74 +40,75 @@ Project is a monorepo with the following packages:
 
 ### Code Style and Quality
 
-We use Biome for linting and formatting, and TypeScript for type checking:
+We use vite-plus for linting and formatting, and TypeScript for type checking:
 
 - **Lint**: Check for code issues
 
   ```bash
-  pnpm run lint
+  pnpm lint
   ```
 
 - **Format**: Auto-fix formatting issues
 
   ```bash
-  pnpm run format
+  pnpm format
   ```
 
 - **Type Check**: Verify TypeScript types
 
   ```bash
-  pnpm run type
-  ```
-
-- **Comprehensive Check**: Run lint and type checking
-  ```bash
-  pnpm run check
+  pnpm type
   ```
 
 ### Testing
 
-Tests are collocated with the code and use Vitest:
+Tests are collocated with the code and use Vitest through vite-plus:
 
-- **Run All Tests**: (includes linting and type checking)
+- **Run All Tests**: (includes linting and building)
 
   ```bash
   pnpm test
   ```
 
-- **Run Tests Only**: (without linting/type checking)
+- **Run Tests Only**: (without linting/building)
 
   ```bash
-  pnpm run spec
+  pnpm unit
   ```
 
 - **Run a Specific Test**:
+
   ```bash
-  pnpm exec vitest run aspect/file.ts
+  pnpm unit table/plugins/csv/actions/table/-test/load.unit.ts
   ```
+
+  Bare `vitest` does not work here — it fails to collect suites that import
+  `vite-plus/test`.
 
 ### Dependencies
 
 Update all dependencies to their latest versions:
 
 ```bash
-pnpm run bump
+pnpm deps
 ```
 
 ## Code Style Guidelines
 
 - Use TypeScript with strict type checking
-- Follow ES modules pattern (`import`/`export`)
-- Tests should be placed in `__spec__` directories
+- Follow ES modules pattern (`import`/`export`) with full `.ts` file extensions
+- Unit tests are named `*.unit.ts` and live in collocated `-test` directories, alongside their `fixtures`
 - Use semicolons as needed (not required everywhere)
 - Use arrow function parentheses as needed (omitted for single parameters)
+
+See `AGENTS.md` for the full set of conventions.
 
 ## Making Changes to the Meta-Package
 
 When adding new functionality:
 
 1. Add it to the appropriate package first
-2. Ensure it's properly exported from that package
+2. Ensure it's properly exported from that package's `index.ts`
 3. No additional work is needed for the meta-package as it automatically re-exports everything
 
 ## Submitting Changes
