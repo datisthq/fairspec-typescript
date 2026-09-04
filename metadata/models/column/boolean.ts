@@ -4,8 +4,7 @@ import { BaseColumn, BaseColumnProperty } from "./base.ts"
 
 export const BooleanColumnProperty = BaseColumnProperty.extend({
   type: createNullablePropertyType("boolean"),
-  // TODO: Fix this hack
-  format: z.literal("").optional(),
+  format: z.never().optional(),
 
   enum: z
     .array(z.boolean())

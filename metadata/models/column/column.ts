@@ -76,12 +76,7 @@ export const ColumnType = z.enum([
   "wkt",
 ])
 
-const IntegerColumnPropertyGroup = z.discriminatedUnion("format", [
-  IntegerColumnProperty,
-  IntegerCategoricalColumnProperty,
-])
-
-const StringColumnPropertyGroup = z.discriminatedUnion("format", [
+const StringColumnPropertyWithFormat = z.discriminatedUnion("format", [
   ListColumnProperty,
   Base64ColumnProperty,
   HexColumnProperty,
@@ -93,24 +88,25 @@ const StringColumnPropertyGroup = z.discriminatedUnion("format", [
   DurationColumnProperty,
   WktColumnProperty,
   WkbColumnProperty,
-  StringColumnProperty,
   StringCategoricalColumnProperty,
   DecimalColumnProperty,
 ])
 
-const ObjectColumnPropertyGroup = z.discriminatedUnion("format", [
+const ObjectColumnPropertyWithFormat = z.discriminatedUnion("format", [
   GeojsonColumnProperty,
   TopojsonColumnProperty,
-  ObjectColumnProperty,
 ])
 
 export const ColumnProperty = z.union([
   BooleanColumnProperty,
-  IntegerColumnPropertyGroup,
+  IntegerCategoricalColumnProperty,
+  IntegerColumnProperty,
   NumberColumnProperty,
-  StringColumnPropertyGroup,
+  StringColumnPropertyWithFormat,
+  StringColumnProperty,
   ArrayColumnProperty,
-  ObjectColumnPropertyGroup,
+  ObjectColumnPropertyWithFormat,
+  ObjectColumnProperty,
   UnknownColumnProperty,
 ])
 

@@ -4,8 +4,6 @@ import { BaseColumn, BaseColumnProperty } from "./base.ts"
 
 export const BaseNumberColumnProperty = BaseColumnProperty.extend({
   type: createNullablePropertyType("number"),
-  // TODO: Fix this hack
-  format: z.literal("").optional(),
 
   enum: z
     .array(z.number())
@@ -87,8 +85,7 @@ export const BaseNumberColumnProperty = BaseColumnProperty.extend({
 })
 
 export const NumberColumnProperty = BaseNumberColumnProperty.extend({
-  // TODO: Fix this hack
-  format: z.literal("").optional(),
+  format: z.never().optional(),
 })
 
 export const NumberColumn = BaseColumn.extend({

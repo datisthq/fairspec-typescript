@@ -6,8 +6,7 @@ import { BaseColumn, BaseColumnProperty } from "./base.ts"
 
 export const ArrayColumnProperty = BaseColumnProperty.extend({
   type: createNullablePropertyType("array"),
-  // TODO: Fix this hack
-  format: z.literal("").optional(),
+  format: z.never().optional(),
 
   enum: z
     .array(z.unknown())
