@@ -2,9 +2,9 @@ import * as fs from "node:fs/promises"
 import * as path from "node:path"
 import { temporaryDirectory } from "tempy"
 import { afterEach, beforeEach, describe, expect, it } from "vite-plus/test"
-import type { TableSchema } from "../../models/tableSchema.ts"
-import * as settings from "../../settings.ts"
-import { saveTableSchema } from "./save.ts"
+import type { TableSchema } from "../../../models/tableSchema.ts"
+import * as settings from "../../../settings.ts"
+import { saveTableSchema } from "../save.ts"
 
 describe("saveTableSchema", () => {
   const testSchema: TableSchema = {

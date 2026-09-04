@@ -1,6 +1,6 @@
 import { describe, expect, expectTypeOf, it } from "vite-plus/test"
-import type { Dataset } from "../../models/dataset.ts"
-import { assertDataset } from "./assert.ts"
+import type { Dataset } from "../../../models/dataset.ts"
+import { assertDataset } from "../assert.ts"
 
 describe("assertDataset", () => {
   it("returns typed package when valid", async () => {

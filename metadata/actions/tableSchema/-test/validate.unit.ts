@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test"
-import { validateTableSchema } from "./validate.ts"
+import { validateTableSchema } from "../validate.ts"
 
 describe("validateTableSchema", () => {
   it("returns no errors for valid schema", async () => {

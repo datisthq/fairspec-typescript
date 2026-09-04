@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test"
-import { denormalizePath } from "./denormalize.ts"
+import { denormalizePath } from "../denormalize.ts"
 
 describe("denormalizePath", () => {
   it.each([

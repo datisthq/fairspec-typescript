@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test"
-import { inspectJsonSchema } from "./inspect.ts"
+import { inspectJsonSchema } from "../inspect.ts"
 
 describe("inspectJsonSchema", () => {
   it("returns empty array for valid JSON Schema", async () => {

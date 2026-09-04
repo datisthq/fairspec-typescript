@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test"
-import { getBasePropertyType, getIsNullablePropertyType } from "./property.ts"
+import { getBasePropertyType, getIsNullablePropertyType } from "../property.ts"
 
 describe("getBasePropertyType", () => {
   it("should return the type for a string type", () => {

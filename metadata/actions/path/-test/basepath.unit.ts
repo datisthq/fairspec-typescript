@@ -1,6 +1,6 @@
 import { join } from "node:path"
 import { describe, expect, it } from "vite-plus/test"
-import { getBasepath } from "./basepath.ts"
+import { getBasepath } from "../basepath.ts"
 
 describe("getBasepath", () => {
   it.each([

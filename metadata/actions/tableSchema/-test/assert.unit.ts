@@ -1,6 +1,6 @@
 import { describe, expect, expectTypeOf, it } from "vite-plus/test"
-import type { TableSchema } from "../../models/tableSchema.ts"
-import { assertTableSchema } from "./assert.ts"
+import type { TableSchema } from "../../../models/tableSchema.ts"
+import { assertTableSchema } from "../assert.ts"
 
 describe("assertTableSchema", () => {
   it("returns typed schema when valid", async () => {

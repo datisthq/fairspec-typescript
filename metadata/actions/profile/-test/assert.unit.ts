@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test"
-import { assertProfile } from "./assert.ts"
+import { assertProfile } from "../assert.ts"
 
 describe("assertProfile", () => {
   it("returns profile for valid json schema", async () => {

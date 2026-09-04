@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test"
-import { node } from "./node.ts"
+import { node } from "../node.ts"
 
 describe("loadNodeApis", () => {
   it("should return node APIs when running in Node.js environment", async () => {

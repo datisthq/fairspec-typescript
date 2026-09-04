@@ -1,7 +1,7 @@
 import { join } from "node:path"
 import { describe, expect, expectTypeOf, it } from "vite-plus/test"
-import type { TableSchema } from "../../models/tableSchema.ts"
-import { loadTableSchema } from "./load.ts"
+import type { TableSchema } from "../../../models/tableSchema.ts"
+import { loadTableSchema } from "../load.ts"
 
 describe("loadTableSchema", () => {
   const getFixturePath = (name: string) => join(import.meta.dirname, "fixtures", name)

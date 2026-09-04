@@ -2,7 +2,7 @@ import * as fs from "node:fs/promises"
 import * as path from "node:path"
 import { temporaryDirectory } from "tempy"
 import { afterEach, beforeEach, describe, expect, it } from "vite-plus/test"
-import { saveDescriptor } from "./save.ts"
+import { saveDescriptor } from "../save.ts"
 
 describe("saveDescriptor", () => {
   const testDescriptor = {

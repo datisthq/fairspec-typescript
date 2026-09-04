@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test"
-import { inferResourceName } from "./infer.ts"
+import { inferResourceName } from "../infer.ts"
 
 describe("inferResourceName", () => {
   it("dont returns existing name when provided", () => {

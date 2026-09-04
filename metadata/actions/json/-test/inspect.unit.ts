@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test"
-import { inspectJson } from "./inspect.ts"
+import { inspectJson } from "../inspect.ts"
 
 describe("inspectJson", () => {
   it("returns empty array for valid value", async () => {

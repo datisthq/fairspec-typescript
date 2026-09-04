@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test"
-import { getColumns } from "./column.ts"
+import { getColumns } from "../column.ts"
 
 describe("getColumns", () => {
   it("should set required for columns listed in required", () => {

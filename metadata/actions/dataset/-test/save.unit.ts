@@ -2,9 +2,9 @@ import * as fs from "node:fs/promises"
 import * as path from "node:path"
 import { temporaryDirectory } from "tempy"
 import { afterEach, beforeEach, describe, expect, it } from "vite-plus/test"
-import type { Dataset } from "../../models/dataset.ts"
-import * as settings from "../../settings.ts"
-import { saveDatasetDescriptor } from "./save.ts"
+import type { Dataset } from "../../../models/dataset.ts"
+import * as settings from "../../../settings.ts"
+import { saveDatasetDescriptor } from "../save.ts"
 
 describe("saveDatasetDescriptor", () => {
   let testDir: string

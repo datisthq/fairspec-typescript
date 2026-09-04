@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test"
-import { createColumnFromProperty } from "./create.ts"
+import { createColumnFromProperty } from "../create.ts"
 
 describe("createColumnFromProperty", () => {
   it("should create a column with string type", () => {

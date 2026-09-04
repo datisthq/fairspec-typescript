@@ -1,7 +1,7 @@
 import { join, relative } from "node:path"
 import { describe, expect, expectTypeOf, it } from "vite-plus/test"
-import type { Dataset } from "../../models/dataset.ts"
-import { loadDatasetDescriptor } from "./load.ts"
+import type { Dataset } from "../../../models/dataset.ts"
+import { loadDatasetDescriptor } from "../load.ts"
 
 describe("loadDatasetDescriptor", async () => {
   const getFixturePath = (name: string) =>

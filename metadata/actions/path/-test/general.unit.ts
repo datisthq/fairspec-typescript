@@ -4,7 +4,7 @@ import {
   getFileName,
   getFileNameSlug,
   getIsRemotePath,
-} from "./general.ts"
+} from "../general.ts"
 
 describe("getIsRemotePath", () => {
   it.each([
