@@ -4,9 +4,6 @@ import { inferTableSchemaFromTable } from "../../../../actions/tableSchema/infer
 import type { SaveTableOptions, Table } from "../../../../models/table.ts"
 import { NATIVE_TYPES } from "../../settings.ts"
 
-// TODO: rebase on sinkIPC when it is available
-// https://github.com/pola-rs/nodejs-polars/issues/353
-
 export async function saveArrowTable(table: Table, options: SaveTableOptions) {
   const { path, overwrite } = options
 
@@ -25,8 +22,11 @@ export async function saveArrowTable(table: Table, options: SaveTableOptions) {
     nativeTypes: NATIVE_TYPES,
   })
 
-  const frame = await table.collect()
-  frame.writeIPC(path)
+  await table
+    .sinkIpc(path, {
+      maintainOrder: true,
+    })
+    .collect()
 
   return path
 }
