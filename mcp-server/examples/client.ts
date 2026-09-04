@@ -4,7 +4,7 @@ const mcp = new MCPClient({
   servers: {
     fairspec: {
       command: "node",
-      args: ["agent/main.ts"],
+      args: ["mcp-server/main.ts"],
     },
   },
 })

@@ -1,4 +1,4 @@
-import { server } from "@fairspec/agent"
+import { server } from "@fairspec/mcp-server"
 import { Command } from "commander"
 import { helpConfiguration } from "../../helpers/help.ts"
 

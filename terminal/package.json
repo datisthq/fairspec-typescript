@@ -37,8 +37,8 @@
   "dependencies": {
     "@bomb.sh/tab": "^0.0.12",
     "@commander-js/extra-typings": "^14.0.0",
-    "@fairspec/agent": "workspace:*",
     "@fairspec/library": "workspace:*",
+    "@fairspec/mcp-server": "workspace:*",
     "commander": "^14.0.0",
     "json-colorizer": "^3.0.1",
     "picocolors": "^1.1.1",

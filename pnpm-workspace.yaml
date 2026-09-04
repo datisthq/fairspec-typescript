@@ -1,9 +1,9 @@
 packages:
-  - agent
   - dataset
   - extension
   - fairspec
   - library
+  - mcp-server
   - metadata
   - table
   - terminal

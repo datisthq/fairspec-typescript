@@ -11,7 +11,7 @@ Project is a monorepo with the following packages:
 - `@fairspec/table`: Polars-backed table engine plus file format plugins
 - `@fairspec/extension`: Table schema renderers
 - `@fairspec/library`: All the above functionality behind one plugin registry
-- `@fairspec/agent`: MCP tools over the library actions
+- `@fairspec/mcp-server`: MCP tools over the library actions
 - `@fairspec/terminal`: Terminal interface
 - `fairspec`: Meta-package that re-exports the underlying functionality
 

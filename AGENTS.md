@@ -37,7 +37,7 @@ Never introduce an edge that reverses this.
 
 ```
 metadata ─┬─► dataset ───┐
-          ├─► extension ─┼─► library ─► agent ─► terminal ─► fairspec
+          ├─► extension ─┼─► library ─► mcp-server ─► terminal ─► fairspec
           └─► table ─────┘
 ```
 
@@ -46,7 +46,7 @@ metadata ─┬─► dataset ───┐
 - `table` — the Polars-backed table engine (normalize/denormalize, column checks and types, schema inference, the dialect sniffer) plus file-format plugins: arrow, csv, inline, json, parquet, sqlite, xlxs.
 - `extension` — renderers turning a `TableSchema` into markdown or HTML.
 - `library` — the plugin registry (`system.ts`) and the facade actions every consumer calls: `loadTable`, `saveTable`, `loadDataset`, `saveDataset`, `validate*`, `infer*`.
-- `agent` — MCP tools over the library actions.
+- `mcp-server` — MCP tools over the library actions, served over stdio as `fairspec mcp`.
 - `terminal` — the `fairspec` CLI (commander), one command group per entity.
 - `fairspec` — umbrella package re-exporting `@fairspec/library` and shipping the CLI binary.
 
@@ -58,7 +58,7 @@ model, a command), then subgroup by the entity it acts on.
 - `actions/<entity>/<verb>.ts` — the operations everything else wraps (`actions/table/save.ts`, `actions/column/create.ts`).
 - `models/<entity>.ts` — zod schemas and their derived types.
 - `plugins/<name>/` — a self-contained plugin: `plugin.ts` (the class), `settings.ts`, `index.ts`, and its own `actions/` tree.
-- `commands/<entity>/<verb>.ts` (terminal) — CLI commands. `tools/<entity>/<verb>.ts` (agent) — MCP tools.
+- `commands/<entity>/<verb>.ts` (terminal) — CLI commands. `tools/<entity>/<verb>.ts` (mcp-server) — MCP tools.
 - `helpers/<name>.ts` — small supporting functions. `utils/<name>.ts` — heavier self-contained modules (e.g. `table/utils/sniffer/`).
 - `services/`, `profiles/`, `schemas/`, `params/`, `entrypoints/` — external clients, JSON Schema profiles, bundled schemas, CLI option definitions, executable entry points.
 - Root files, one concern each: `index.ts` (the public API surface), `plugin.ts`, `settings.ts`, `system.ts`, `main.ts`.

@@ -6,11 +6,11 @@ const ROOT = join(import.meta.dirname, "..", "..")
 const DOCS = ["AGENTS.md", "README.md", "CONTRIBUTING.md"]
 
 const PACKAGES = [
-  "agent",
   "dataset",
   "extension",
   "fairspec",
   "library",
+  "mcp-server",
   "metadata",
   "table",
   "terminal",
