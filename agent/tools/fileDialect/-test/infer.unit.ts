@@ -1,7 +1,7 @@
 import type { CsvFileDialect, Resource } from "@fairspec/library"
 import { writeTempFile } from "@fairspec/library"
 import { describe, expect, it } from "vite-plus/test"
-import { inferFileDialectTool } from "./infer.ts"
+import { inferFileDialectTool } from "../infer.ts"
 
 describe("inferFileDialectTool", () => {
   it("validates tool structure", () => {

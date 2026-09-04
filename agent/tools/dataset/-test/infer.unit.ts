@@ -1,7 +1,7 @@
 import type { Dataset } from "@fairspec/library"
 import { writeTempFile } from "@fairspec/library"
 import { describe, expect, it } from "vite-plus/test"
-import { inferDatasetTool } from "./infer.ts"
+import { inferDatasetTool } from "../infer.ts"
 
 describe("inferDatasetTool", () => {
   it("validates tool structure", () => {

@@ -1,7 +1,7 @@
 import type { Dataset } from "@fairspec/library"
 import { writeTempFile } from "@fairspec/library"
 import { describe, expect, it } from "vite-plus/test"
-import { validateDatasetTool } from "./validate.ts"
+import { validateDatasetTool } from "../validate.ts"
 
 describe("validateDatasetTool", () => {
   it("validates tool structure", () => {

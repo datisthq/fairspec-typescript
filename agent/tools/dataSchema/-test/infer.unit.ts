@@ -1,7 +1,7 @@
 import type { Resource } from "@fairspec/library"
 import { writeTempFile } from "@fairspec/library"
 import { describe, expect, it } from "vite-plus/test"
-import { inferDataSchemaTool } from "./infer.ts"
+import { inferDataSchemaTool } from "../infer.ts"
 
 describe("inferDataSchemaTool", () => {
   it("validates tool structure", () => {

@@ -1,6 +1,6 @@
 import type { Resource } from "@fairspec/library"
 import { describe, expect, it } from "vite-plus/test"
-import { validateTableTool } from "./validate.ts"
+import { validateTableTool } from "../validate.ts"
 
 describe("validateTableTool", () => {
   it("validates tool structure", () => {

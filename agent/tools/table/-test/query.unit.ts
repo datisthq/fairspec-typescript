@@ -1,7 +1,7 @@
 import type { Resource } from "@fairspec/library"
 import { writeTempFile } from "@fairspec/library"
 import { describe, expect, it } from "vite-plus/test"
-import { queryTableTool } from "./query.ts"
+import { queryTableTool } from "../query.ts"
 
 describe("queryTableTool", () => {
   it("validates tool structure", () => {

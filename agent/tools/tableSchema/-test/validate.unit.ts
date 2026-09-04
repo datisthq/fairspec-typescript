@@ -1,7 +1,7 @@
 import type { Descriptor } from "@fairspec/library"
 import { writeTempFile } from "@fairspec/library"
 import { describe, expect, it } from "vite-plus/test"
-import { validateTableSchemaTool } from "./validate.ts"
+import { validateTableSchemaTool } from "../validate.ts"
 
 describe("validateTableSchemaTool", () => {
   it("validates tool structure", () => {
