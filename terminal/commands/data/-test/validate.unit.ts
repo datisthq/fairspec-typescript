@@ -1,7 +1,7 @@
 import { writeTempFile } from "@fairspec/library"
 import { Command } from "commander"
 import { afterEach, beforeEach, describe, expect, it, vi } from "vite-plus/test"
-import { validateDataCommand } from "./validate.ts"
+import { validateDataCommand } from "../validate.ts"
 
 describe("data validate", () => {
   let originalExitCode: typeof process.exitCode

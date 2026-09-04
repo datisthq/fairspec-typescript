@@ -1,7 +1,7 @@
 import { writeTempFile } from "@fairspec/library"
 import { Command } from "commander"
 import { afterEach, beforeEach, describe, expect, it, vi } from "vite-plus/test"
-import { listDatasetCommand } from "./list.ts"
+import { listDatasetCommand } from "../list.ts"
 
 describe("dataset list", () => {
   beforeEach(() => {

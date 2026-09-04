@@ -1,7 +1,7 @@
 import { describeFile, writeTempFile } from "@fairspec/library"
 import { Command } from "commander"
 import { afterEach, beforeEach, describe, expect, it, vi } from "vite-plus/test"
-import { validateFileCommand } from "./validate.ts"
+import { validateFileCommand } from "../validate.ts"
 
 describe("file validate", () => {
   beforeEach(() => {

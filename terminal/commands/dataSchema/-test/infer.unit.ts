@@ -1,7 +1,7 @@
 import { writeTempFile } from "@fairspec/library"
 import { Command } from "commander"
 import { afterEach, beforeEach, describe, expect, it, vi } from "vite-plus/test"
-import { inferDataSchemaCommand } from "./infer.ts"
+import { inferDataSchemaCommand } from "../infer.ts"
 
 describe("dataSchema infer", () => {
   beforeEach(() => {

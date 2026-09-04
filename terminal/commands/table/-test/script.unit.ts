@@ -11,7 +11,7 @@ vi.mock("node:repl", () => ({
   },
 }))
 
-const { scriptTableCommand } = await import("./script.ts")
+const { scriptTableCommand } = await import("../script.ts")
 
 // TODO: recover
 // Skipped: script commands start interactive REPL sessions which are not suitable
