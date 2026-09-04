@@ -1,7 +1,7 @@
 import { writeTempFile } from "@fairspec/dataset"
 import type { Resource } from "@fairspec/metadata"
 import { describe, expect, it } from "vite-plus/test"
-import { inferResource } from "./infer.ts"
+import { inferResource } from "../infer.ts"
 
 describe("inferResource", () => {
   it("should infer name from path", async () => {

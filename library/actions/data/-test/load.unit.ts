@@ -1,7 +1,7 @@
 import { writeTempFile } from "@fairspec/dataset"
 import type { Resource } from "@fairspec/metadata"
 import { describe, expect, it } from "vite-plus/test"
-import { loadData } from "./load.ts"
+import { loadData } from "../load.ts"
 
 describe("loadData", () => {
   it("should return inline data when present", async () => {

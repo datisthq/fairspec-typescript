@@ -1,7 +1,7 @@
 import { writeTempFile } from "@fairspec/dataset"
 import type { Resource } from "@fairspec/metadata"
 import { describe, expect, it } from "vite-plus/test"
-import { loadTable } from "./load.ts"
+import { loadTable } from "../load.ts"
 
 describe("loadTable", () => {
   it("should load table from CSV file", async () => {

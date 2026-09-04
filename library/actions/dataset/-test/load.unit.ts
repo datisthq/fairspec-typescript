@@ -1,6 +1,6 @@
 import { writeTempFile } from "@fairspec/dataset"
 import { describe, expect, it } from "vite-plus/test"
-import { loadDataset } from "./load.ts"
+import { loadDataset } from "../load.ts"
 
 describe("loadDataset", () => {
   it("should load dataset from JSON file", async () => {

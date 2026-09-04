@@ -1,7 +1,7 @@
 import { writeTempFile } from "@fairspec/dataset"
 import type { Resource } from "@fairspec/metadata"
 import { describe, expect, it } from "vite-plus/test"
-import { validateResource } from "./validate.ts"
+import { validateResource } from "../validate.ts"
 
 describe("validateResource", () => {
   it("should validate correct tabular data", async () => {

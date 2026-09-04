@@ -1,6 +1,6 @@
 import type { Dataset } from "@fairspec/metadata"
 import { describe, expect, it } from "vite-plus/test"
-import { validateDataset } from "./validate.ts"
+import { validateDataset } from "../validate.ts"
 
 describe("validateDataset", () => {
   it("should validate a valid dataset with inline data", async () => {

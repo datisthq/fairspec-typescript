@@ -1,7 +1,7 @@
 import { writeTempFile } from "@fairspec/dataset"
 import type { Resource } from "@fairspec/metadata"
 import { describe, expect, it } from "vite-plus/test"
-import { inferTable } from "./infer.ts"
+import { inferTable } from "../infer.ts"
 
 describe("inferTable", () => {
   it("should infer table from CSV file", async () => {

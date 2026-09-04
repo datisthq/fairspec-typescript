@@ -2,8 +2,8 @@ import { readFile } from "node:fs/promises"
 import { getTempFilePath, writeTempFile } from "@fairspec/dataset"
 import type { Resource } from "@fairspec/metadata"
 import { assert, describe, expect, it } from "vite-plus/test"
-import { loadTable } from "./load.ts"
-import { saveTable } from "./save.ts"
+import { loadTable } from "../load.ts"
+import { saveTable } from "../save.ts"
 
 describe("saveTable", () => {
   it("should save table to CSV file", async () => {

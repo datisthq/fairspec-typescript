@@ -1,6 +1,6 @@
 import type { Resource } from "@fairspec/metadata"
 import { describe, expect, it } from "vite-plus/test"
-import { inferDataSchema } from "./infer.ts"
+import { inferDataSchema } from "../infer.ts"
 
 describe("inferDataSchema", () => {
   it("should infer schema from object data", async () => {

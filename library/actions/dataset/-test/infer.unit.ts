@@ -1,7 +1,7 @@
 import { writeTempFile } from "@fairspec/dataset"
 import type { Dataset } from "@fairspec/metadata"
 import { describe, expect, it } from "vite-plus/test"
-import { inferDataset } from "./infer.ts"
+import { inferDataset } from "../infer.ts"
 
 describe("inferDataset", () => {
   it("should infer dataset with single resource", async () => {

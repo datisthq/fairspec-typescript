@@ -1,6 +1,6 @@
 import type { Dataset } from "@fairspec/metadata"
 import { describe, expect, it } from "vite-plus/test"
-import { validateDatasetForeignKeys } from "./foreignKey.ts"
+import { validateDatasetForeignKeys } from "../foreignKey.ts"
 
 describe("validateDatasetForeignKeys", () => {
   it("should validate dataset with valid foreign keys", async () => {
