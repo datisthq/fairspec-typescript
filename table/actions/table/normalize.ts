@@ -5,7 +5,7 @@ import { normalizeColumn } from "../../actions/column/normalize.ts"
 import { getPolarsSchema } from "../../helpers/schema.ts"
 import type { SchemaMapping } from "../../models/schema.ts"
 import type { Table } from "../../models/table.ts"
-import { mergeMissingValues } from "./helpers.ts"
+import { mergeMissingValues } from "./-shared/helpers.ts"
 
 const HEAD_ROWS = 100
 

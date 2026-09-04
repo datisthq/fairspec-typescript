@@ -10,9 +10,9 @@ import type {
 } from "@fairspec/metadata"
 import { inspectJson } from "@fairspec/metadata"
 import * as pl from "nodejs-polars"
-import { getIsObject } from "../../helpers/general.ts"
-import type { Table } from "../../models/table.ts"
-import { NUMBER_COLUMN_NAME } from "../../settings.ts"
+import { getIsObject } from "../../../helpers/general.ts"
+import type { Table } from "../../../models/table.ts"
+import { NUMBER_COLUMN_NAME } from "../../../settings.ts"
 
 // TODO: Generalize wkt/wkb/duration inspectors
 
