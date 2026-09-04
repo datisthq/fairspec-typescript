@@ -1,5 +1,5 @@
 import { readFile, readlink, stat } from "node:fs/promises"
-import { join } from "node:path"
+import { dirname, join, resolve } from "node:path"
 import { describe, expect, it } from "vite-plus/test"
 
 const ROOT = join(import.meta.dirname, "..", "..")
@@ -50,8 +50,9 @@ describe("docs", () => {
   })
 
   it("exposes AGENTS.md to Claude Code as a symlink", async () => {
-    const target = await readlink(join(ROOT, ".claude", "CLAUDE.md"))
-    expect(target).toBe("../AGENTS.md")
+    const path = join(ROOT, ".claude", "CLAUDE.md")
+    const target = await readlink(path)
+    expect(resolve(dirname(path), target)).toBe(join(ROOT, "AGENTS.md"))
   })
 })
 
