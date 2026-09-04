@@ -37,7 +37,7 @@ describe("loadCsvTable", () => {
 
   it.skip("should load remote file", async () => {
     const table = await loadCsvTable({
-      data: "https://raw.githubusercontent.com/fairspec/fairspec-typescript/refs/heads/main/csv/table/fixtures/table.csv",
+      data: "https://raw.githubusercontent.com/datisthq/fairspec-typescript/refs/heads/main/table/plugins/csv/actions/table/-test/fixtures/table.csv",
     })
 
     expect((await table.collect()).toRecords()).toEqual([
@@ -49,8 +49,8 @@ describe("loadCsvTable", () => {
   it.skip("should load remote file (multipart)", async () => {
     const table = await loadCsvTable({
       data: [
-        "https://raw.githubusercontent.com/fairspec/fairspec-typescript/refs/heads/main/csv/table/fixtures/table.csv",
-        "https://raw.githubusercontent.com/fairspec/fairspec-typescript/refs/heads/main/csv/table/fixtures/table.csv",
+        "https://raw.githubusercontent.com/datisthq/fairspec-typescript/refs/heads/main/table/plugins/csv/actions/table/-test/fixtures/table.csv",
+        "https://raw.githubusercontent.com/datisthq/fairspec-typescript/refs/heads/main/table/plugins/csv/actions/table/-test/fixtures/table.csv",
       ],
     })
 
@@ -65,7 +65,7 @@ describe("loadCsvTable", () => {
   it("should load remote file with previewBytes limit", async () => {
     const table = await loadCsvTable(
       {
-        data: "https://raw.githubusercontent.com/fairspec/fairspec-typescript/refs/heads/main/table/plugins/csv/actions/table/fixtures/table.csv",
+        data: "https://raw.githubusercontent.com/datisthq/fairspec-typescript/refs/heads/main/table/plugins/csv/actions/table/-test/fixtures/table.csv",
       },
       { previewBytes: 18 },
     )

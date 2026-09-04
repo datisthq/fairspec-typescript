@@ -8,7 +8,7 @@ useRecording()
 
 describe("prefetchFiles", () => {
   const remoteUrl =
-    "https://raw.githubusercontent.com/fairspec/fairspec-typescript/refs/heads/main/table/plugins/csv/actions/table/fixtures/table.csv"
+    "https://raw.githubusercontent.com/datisthq/fairspec-typescript/refs/heads/main/table/plugins/csv/actions/table/-test/fixtures/table.csv"
 
   it("should prefetch files without maxBytes option", async () => {
     const resource: Resource = { data: remoteUrl }
