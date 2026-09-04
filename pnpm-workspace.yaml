@@ -5,6 +5,7 @@ packages:
   - library
   - mcp-server
   - metadata
+  - project
   - table
   - terminal
 

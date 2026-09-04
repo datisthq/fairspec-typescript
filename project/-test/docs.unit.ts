@@ -12,6 +12,7 @@ const PACKAGES = [
   "library",
   "mcp-server",
   "metadata",
+  "project",
   "table",
   "terminal",
 ]
@@ -53,6 +54,12 @@ describe("docs", () => {
     const path = join(ROOT, ".claude", "CLAUDE.md")
     const target = await readlink(path)
     expect(resolve(dirname(path), target)).toBe(join(ROOT, "AGENTS.md"))
+  })
+
+  it("exposes skills to Claude Code as a symlink", async () => {
+    const path = join(ROOT, ".claude", "skills")
+    const target = await readlink(path)
+    expect(resolve(dirname(path), target)).toBe(join(ROOT, "project", "skills"))
   })
 })
 
