@@ -30,8 +30,11 @@ export default defineConfig({
     {
       type: "custom",
       title: "MCP Server",
-      url: "https://fairspec.org/mcp-server/",
+      url: "/mcp-server/",
       icon: "sparkles",
+      siteTitle: "Fairspec MCP Server",
+      siteDescription: "AI-assisted data management",
+      siteLink: "/mcp-server/",
     },
     {
       type: "custom",
