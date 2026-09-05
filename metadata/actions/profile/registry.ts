@@ -1,39 +1,27 @@
-import type { ProfileRegistry } from "../../models/profile.ts"
+import type { Profile, ProfileRegistry, ProfileType } from "../../models/profile.ts"
 import catalogProfile from "../../profiles/catalog.json" with { type: "json" }
 import dataSchemaProfile from "../../profiles/data-schema.json" with { type: "json" }
 import datasetProfile from "../../profiles/dataset.json" with { type: "json" }
 import fileDialectProfile from "../../profiles/file-dialect.json" with { type: "json" }
 import tableSchemaProfile from "../../profiles/table-schema.json" with { type: "json" }
+import { FAIRSPEC_VERSION } from "../../settings.ts"
 
-export const profileRegistry: ProfileRegistry = [
-  {
-    type: "catalog",
-    path: "https://fairspec.org/profiles/latest/catalog.json",
-    version: "latest",
-    profile: catalogProfile,
-  },
-  {
-    type: "dataset",
-    path: "https://fairspec.org/profiles/latest/dataset.json",
-    version: "latest",
-    profile: datasetProfile,
-  },
-  {
-    type: "file-dialect",
-    path: "https://fairspec.org/profiles/latest/file-dialect.json",
-    version: "latest",
-    profile: fileDialectProfile,
-  },
-  {
-    type: "data-schema",
-    path: "https://fairspec.org/profiles/latest/data-schema.json",
-    version: "latest",
-    profile: dataSchemaProfile,
-  },
-  {
-    type: "table-schema",
-    path: "https://fairspec.org/profiles/latest/table-schema.json",
-    version: "latest",
-    profile: tableSchemaProfile,
-  },
+const bundledProfiles: { type: ProfileType; profile: Profile }[] = [
+  { type: "catalog", profile: catalogProfile },
+  { type: "dataset", profile: datasetProfile },
+  { type: "file-dialect", profile: fileDialectProfile },
+  { type: "data-schema", profile: dataSchemaProfile },
+  { type: "table-schema", profile: tableSchemaProfile },
 ]
+
+// The bundle is a snapshot of FAIRSPEC_VERSION, so it must answer to that version's URL as well
+// as "latest" -- every save* action stamps the versioned one, and an exact-match miss goes remote.
+export const profileRegistry: ProfileRegistry = bundledProfiles.flatMap(
+  ({ type, profile }) =>
+    ["latest", FAIRSPEC_VERSION].map(version => ({
+      type,
+      version,
+      path: `https://fairspec.org/profiles/${version}/${type}.json`,
+      profile,
+    })),
+)

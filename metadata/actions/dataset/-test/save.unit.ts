@@ -1,10 +1,11 @@
 import * as fs from "node:fs/promises"
 import * as path from "node:path"
 import { temporaryDirectory } from "tempy"
-import { afterEach, beforeEach, describe, expect, it } from "vite-plus/test"
+import { afterEach, beforeEach, describe, expect, it, vi } from "vite-plus/test"
 import type { Dataset } from "../../../models/dataset.ts"
 import * as settings from "../../../settings.ts"
 import { saveDatasetDescriptor } from "../save.ts"
+import { validateDatasetDescriptor } from "../validate.ts"
 
 describe("saveDatasetDescriptor", () => {
   let testDir: string
@@ -35,6 +36,8 @@ describe("saveDatasetDescriptor", () => {
   })
 
   afterEach(async () => {
+    vi.unstubAllGlobals()
+
     try {
       await fs.rm(testDir, { recursive: true, force: true })
     } catch (error) {
@@ -377,5 +380,31 @@ describe("saveDatasetDescriptor", () => {
     expect(parsedContent.relatedIdentifiers[0]?.relatedIdentifier).toBe(
       "https://example.com/data",
     )
+  })
+
+  it("should save a dataset that validates offline against the stamped $schema", async () => {
+    const datasetWithIntegrity: Dataset = {
+      ...testDataset,
+      resources: [
+        {
+          name: "test_resource",
+          data: path.join(testDir, "data.csv"),
+          integrity: {
+            type: "sha256",
+            hash: "5f951fd841d3bd6c03ea05024f8c564096e10a3e17483e6a70d25a885942683a",
+          },
+        },
+      ],
+    }
+
+    vi.stubGlobal("fetch", async (url: string) => {
+      throw new TypeError(`offline: ${url}`)
+    })
+
+    await saveDatasetDescriptor(datasetWithIntegrity, { path: testPath })
+    const report = await validateDatasetDescriptor(testPath)
+
+    expect(report.errors).toEqual([])
+    expect(report.valid).toBe(true)
   })
 })
