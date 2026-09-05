@@ -6,7 +6,7 @@ abstract: TypeScript implementation of the Fairspec data management framework.
 authors:
   - family-names: Karev
     given-names: Evgeny
-    email: eskarev@gmail.com
+    email: evgeny.karev@datist.io
 url: "https://typescript.fairspec.org"
 repository-code: "https://github.com/datisthq/fairspec-typescript"
 license: MIT
