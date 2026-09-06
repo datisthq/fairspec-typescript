@@ -40,7 +40,7 @@
     "@fairspec/metadata": "workspace:*",
     "kysely": "^0.28.17",
     "kysely-generic-sqlite": "^1.2.1",
-    "nodejs-polars": "^0.23.5",
+    "nodejs-polars": "^0.26.0",
     "p-all": "^5.0.1",
     "temporal-polyfill": "^0.3.0",
     "wkx-ts": "^1.0.1",

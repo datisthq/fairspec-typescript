@@ -13,5 +13,5 @@ export function parseDateTimeColumn(column: DateTimeColumn, columnExpr: pl.Expr)
 export function stringifyDateTimeColumn(column: DateTimeColumn, columnExpr: pl.Expr) {
   const format = column.property.temporalFormat ?? DEFAULT_FORMAT
 
-  return columnExpr.date.strftime(format)
+  return columnExpr.dt.strftime(format)
 }
