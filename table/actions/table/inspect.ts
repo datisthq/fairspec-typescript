@@ -1,4 +1,3 @@
-import os from "node:os"
 import type { Column, RowError, TableError, TableSchema } from "@fairspec/metadata"
 import { getColumns } from "@fairspec/metadata"
 import * as pl from "nodejs-polars"
@@ -7,7 +6,12 @@ import { inspectColumn } from "../../actions/column/inspect.ts"
 import { getPolarsSchema } from "../../helpers/schema.ts"
 import type { SchemaMapping } from "../../models/schema.ts"
 import type { Table } from "../../models/table.ts"
-import { ERROR_COLUMN_NAME, NUMBER_COLUMN_NAME } from "../../settings.ts"
+import {
+  ERROR_COLUMN_NAME,
+  INSPECT_COLUMN_CONCURRENCY,
+  INSPECT_ROW_CONCURRENCY,
+  NUMBER_COLUMN_NAME,
+} from "../../settings.ts"
 import { createRowKeyChecks } from "./checks/key.ts"
 
 export async function inspectTable(
@@ -46,7 +50,6 @@ async function inspectColumns(
   const { maxErrors } = options
   const errors: TableError[] = []
   const columns = getColumns(mapping.target)
-  const concurrency = os.cpus().length
   const abortController = new AbortController()
   const maxColumnErrors = Math.ceil(maxErrors / columns.length)
 
@@ -77,7 +80,7 @@ async function inspectColumns(
   try {
     await pAll(
       columns.map(column => () => collectColumnErrors(column)),
-      { concurrency },
+      { concurrency: INSPECT_COLUMN_CONCURRENCY },
     )
   } catch (error) {
     const isAborted = error instanceof Error && error.name === "AbortError"
@@ -95,7 +98,6 @@ async function inspectRows(
   const { maxErrors } = options
   const errors: TableError[] = []
   const columns = getColumns(mapping.target)
-  const concurrency = os.cpus().length - 1
   const abortController = new AbortController()
   const maxRowErrors = Math.ceil(maxErrors / columns.length)
 
@@ -134,7 +136,7 @@ async function inspectRows(
   try {
     await pAll(
       [...createRowKeyChecks(mapping)].map(it => () => collectRowErrors(it)),
-      { concurrency },
+      { concurrency: INSPECT_ROW_CONCURRENCY },
     )
   } catch (error) {
     const isAborted = error instanceof Error && error.name === "AbortError"
