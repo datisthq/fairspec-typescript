@@ -100,21 +100,26 @@ async function inspectRows(
   const maxRowErrors = Math.ceil(maxErrors / columns.length)
 
   const collectRowErrors = async (check: any) => {
-    const rowCheckTable = table.withRowIndex(NUMBER_COLUMN_NAME, 1).withColumn(
-      pl
-        .when(check.isErrorExpr)
-        .then(pl.lit(JSON.stringify(check.errorTemplate)))
-        .otherwise(pl.lit(null))
-        .alias(ERROR_COLUMN_NAME),
-    )
+    // A literal is broadcast to every row, so flag the error with a boolean rather
+    // than a JSON template, which would materialize a full-length string column.
+    // The check owns a single template, so it is read from the closure below.
+    const rowCheckTable = table
+      .withRowIndex(NUMBER_COLUMN_NAME, 1)
+      .withColumn(
+        pl
+          .when(check.isErrorExpr)
+          .then(pl.lit(true))
+          .otherwise(pl.lit(null).cast(pl.Bool))
+          .alias(ERROR_COLUMN_NAME),
+      )
 
     const rowCheckFrame = await rowCheckTable
       .filter(pl.col(ERROR_COLUMN_NAME).isNotNull())
       .head(maxRowErrors)
       .collect()
 
+    const errorTemplate = check.errorTemplate as RowError
     for (const row of rowCheckFrame.toRecords() as any[]) {
-      const errorTemplate = JSON.parse(row[ERROR_COLUMN_NAME]) as RowError
       errors.push({
         ...errorTemplate,
         rowNumber: row[NUMBER_COLUMN_NAME],

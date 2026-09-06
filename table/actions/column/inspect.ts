@@ -129,13 +129,19 @@ async function inspectCellsInPolars(
 ) {
   const { maxErrors } = options
   const errors: CellError[] = []
+
+  // The error column carries a tag, not the error itself: a literal is broadcast to
+  // every row, so a JSON template would materialize a full-length string column per
+  // check. Templates are resolved back in JS once the frame is filtered down.
+  const errorTemplates: CellError[] = []
+
   let columnCheckTable = table
     .withRowIndex(NUMBER_COLUMN_NAME, 1)
     .select(
       pl.col(NUMBER_COLUMN_NAME),
       normalizeColumn(mapping).alias("target"),
       normalizeColumn(mapping, { keepType: true }).alias("source"),
-      pl.lit(null).alias("error"),
+      pl.lit(null).cast(pl.UInt8).alias("error"),
     )
 
   for (const checkCell of [
@@ -159,13 +165,16 @@ async function inspectCellsInPolars(
     const check = checkCell(mapping.target, cellMapping)
     if (!check) continue
 
+    const errorTag = errorTemplates.length
+    errorTemplates.push(check.errorTemplate)
+
     columnCheckTable = columnCheckTable.withColumn(
       pl
         .when(pl.col("error").isNotNull())
         .then(pl.col("error"))
         .when(check.isErrorExpr)
-        .then(pl.lit(JSON.stringify(check.errorTemplate)))
-        .otherwise(pl.lit(null))
+        .then(pl.lit(errorTag).cast(pl.UInt8))
+        .otherwise(pl.lit(null).cast(pl.UInt8))
         .alias("error"),
     )
   }
@@ -177,7 +186,7 @@ async function inspectCellsInPolars(
     .collect()
 
   for (const row of columnCheckFrame.toRecords() as any[]) {
-    const errorTemplate = JSON.parse(row.error) as CellError
+    const errorTemplate = errorTemplates[row.error] as CellError
     errors.push({
       ...errorTemplate,
       rowNumber: row[NUMBER_COLUMN_NAME],
