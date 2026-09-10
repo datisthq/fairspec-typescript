@@ -33,7 +33,7 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.0",
     "@typescript/native-preview": "7.0.0-dev.20260316.1",
-    "@vitest/coverage-v8": "4.1.0",
+    "@vitest/coverage-v8": "4.1.11",
     "conventional-changelog-conventionalcommits": "9.1.0",
     "execa": "9.6.0",
     "lefthook": "2.1.1",
@@ -45,7 +45,7 @@
     "semantic-release": "24.2.9",
     "tempy": "3.1.0",
     "type-fest": "4.41.0",
-    "vite-plus": "0.1.24",
+    "vite-plus": "0.3.1",
     "vitest-polly": "2.1.0",
     "wrangler": "4.90.0"
   },
