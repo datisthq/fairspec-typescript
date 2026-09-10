@@ -13,7 +13,7 @@ import type { ComponentType, ReactNode, SVGProps } from "react"
 import { useState } from "react"
 import { buttonVariants } from "livemark/elements/button"
 import { useInView } from "livemark/hooks/in-view"
-import { cn } from "livemark/utils/style"
+import { cn } from "cn"
 
 // @ts-ignore
 export const Route = createFileRoute("/mcp-server/")({
