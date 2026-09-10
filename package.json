@@ -17,7 +17,7 @@
     "preview": "livemark preview",
     "release": "pnpm -r publish --access public --ignore-scripts --no-git-checks",
     "scan": "pnpm leaks && pnpm vulns",
-    "vers": "pnpm -r exec pnpm version --no-git-tag-version --no-git-checks",
+    "vers": "pnpm version --recursive --no-git-checks",
     "unit": "vp test",
     "test": "pnpm lint && pnpm build && pnpm unit",
     "test:win": "pnpm unit",
@@ -53,5 +53,5 @@
     "node": "^24.0.0",
     "pnpm": "^11.0.0"
   },
-  "packageManager": "pnpm@11.1.2+sha512.415a1cc25974731e75455c1468371be74c5aa5fb7621b50d4056d222451609f11412f23fd602e6169f1e060466641f798597e1be961a10688836a67b16569499"
+  "packageManager": "pnpm@11.26.0+sha512.fc0e2bf890b9f983611f1ab68c0637bce914390653699f83c1a78b005ed25f2c81e77920c8fd8eee2ecf0b58b28cdcb00a84d97f69bcf7c56b2f344710238664"
 }
