@@ -10,7 +10,7 @@
     "debug": "vp test --no-file-parallelism --test-timeout=0 --inspect-brk --browser run",
     "docs:build": "livemark build",
     "docs:start": "livemark start",
-    "format": "vp fmt",
+    "format": "vp fmt --no-error-on-unmatched-pattern",
     "leaks": "gitleaks git --config=.gitleaks.toml --verbose --redact",
     "lint": "vp fmt --check && vp lint",
     "prepare": "lefthook install",
