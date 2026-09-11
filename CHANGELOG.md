@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.13.0](https://github.com/datisthq/fairspec-typescript/compare/v0.12.4...v0.13.0) (2026-09-11)
+
+
+### Features
+
+* **arrow:** stream table saving via sinkIpc ([cc8694b](https://github.com/datisthq/fairspec-typescript/commit/cc8694b17a61525b6ca9e7fc0be8e63d8acdaab7)), closes [#34](https://github.com/datisthq/fairspec-typescript/issues/34)
+* **mcp-server:** rename the agent package to mcp-server ([8a464dd](https://github.com/datisthq/fairspec-typescript/commit/8a464ddba59c69babed454f78cefa1691c1061c7))
+
+
+### Bug Fixes
+
+* **fairspec:** compare symlink target by resolved path ([1c5da38](https://github.com/datisthq/fairspec-typescript/commit/1c5da382cf2a70bfda3b8784c667f4a54d983e08))
+* **metadata:** remove the format="" hack from column models ([957eba9](https://github.com/datisthq/fairspec-typescript/commit/957eba999f50a34b8ae77b62eeef772b305eaeea))
+* **metadata:** resolve versioned profile paths from the bundled registry ([b0f1848](https://github.com/datisthq/fairspec-typescript/commit/b0f184898b49df7b0878950068620802283567ec))
+* **table:** tag cell and row errors instead of embedding a template ([b345600](https://github.com/datisthq/fairspec-typescript/commit/b345600330ab0bf235a3bdf6709b959be0f7df2b))
+* **test:** point fixture URLs at the current repo and path ([0a76897](https://github.com/datisthq/fairspec-typescript/commit/0a76897df97a4d2878e39f8e91cba5f6345f64b2))
+
+
+### Performance Improvements
+
+* **table:** run column and row checks one at a time ([0748af8](https://github.com/datisthq/fairspec-typescript/commit/0748af89f68a596c01eaaa52708535c2b2119a74))
+
 ## [0.12.4](https://github.com/fairspec/fairspec-typescript/compare/v0.12.3...v0.12.4) (2026-06-15)
 
 ### Bug Fixes
