@@ -100,7 +100,7 @@ vitest-polly both derive their paths from the test file's own directory.
 - One export per file is the default, not an absolute: a file may export a closely related pair (`dataset/actions/file/temp.ts` exports `getTempFilePath` and `writeTempFile`)
 - Use relative imports with the full `.ts`/`.tsx` file extension
 - **`index.ts` barrels are deliberate and required.** Every package publishes `"exports": "./build/index.js"`, and its `index.ts` is a curated list of explicit named re-exports — never `export *`. Adding a public API means adding its line there.
-- Commit style: Conventional Commits (`feat`, `fix`, `chore`, `docs`, `refactor`); semantic-release derives the changelog from them
+- Commit style: Conventional Commits (`feat`, `fix`, `chore`, `docs`, `refactor`); release-please derives the version and changelog from them — see **Releases**
 
 ## Types
 
@@ -114,6 +114,23 @@ vitest-polly both derive their paths from the test file's own directory.
 - Don't add useless comments like "Arrange", "Act", "Assert"
 - **The suite must pass on Windows — CI runs it there via `pnpm test:win`.** Never assert on a raw path string: `readlink`, `join` and `import.meta.dirname` all speak the platform separator, so `expect(target).toBe("../AGENTS.md")` passes locally and fails on Windows with a backslashed target. Compare paths only after `resolve()`-ing both sides, and match file content against `\r?\n`, never a bare newline literal.
 - Network tests use `useRecording()` from `vitest-polly`; the HAR lands in `-test/fixtures/generated/<test-name>_<hash>/`. Renaming a `describe`/`it` renames that directory, so the old recording is orphaned and the next run silently re-records from the live network — check `git status` after renaming a recorded test.
+
+## Releases
+
+Conventional Commits drive [release-please](https://github.com/googleapis/release-please): a
+`feat` or `fix` landing on `main` opens a Release PR, and merging that PR cuts the version,
+tags it and publishes. Merging is the gate — nothing ships without it.
+
+- **IMPORTANT: only changes to the published packages use `feat` or `fix`.** Everything else MUST be
+  `chore` or `docs` — CI and workflows, release config, dependencies, tooling, `AGENTS.md`,
+  the README, the docs site
+- This is not a style preference. release-please reads the commit type: a `fix:` on a workflow
+  file cuts a release and burns a version number on a change no consumer can observe. Version
+  numbers can never be reused
+- When in doubt, ask whether the change alters what someone installing a package gets.
+  If it does not, it is `chore`
+- Release config lives in `.release/config.json` and `.release/manifest.json`. The manifest
+  holds the current version and release-please maintains it — never hand-edit it
 
 ## Docs
 
