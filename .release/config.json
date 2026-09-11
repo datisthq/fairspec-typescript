@@ -1,0 +1,49 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "node"
+    }
+  },
+  "extra-files": [
+    {
+      "type": "json",
+      "path": "dataset/package.json",
+      "jsonpath": "$.version"
+    },
+    {
+      "type": "json",
+      "path": "extension/package.json",
+      "jsonpath": "$.version"
+    },
+    {
+      "type": "json",
+      "path": "fairspec/package.json",
+      "jsonpath": "$.version"
+    },
+    {
+      "type": "json",
+      "path": "library/package.json",
+      "jsonpath": "$.version"
+    },
+    {
+      "type": "json",
+      "path": "mcp-server/package.json",
+      "jsonpath": "$.version"
+    },
+    {
+      "type": "json",
+      "path": "metadata/package.json",
+      "jsonpath": "$.version"
+    },
+    {
+      "type": "json",
+      "path": "table/package.json",
+      "jsonpath": "$.version"
+    },
+    {
+      "type": "json",
+      "path": "terminal/package.json",
+      "jsonpath": "$.version"
+    }
+  ]
+}
