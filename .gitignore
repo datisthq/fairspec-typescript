@@ -73,3 +73,4 @@ messages.js
 .user/
 tmuxp.yaml
 /.claude/settings.local.json
+.vitest/
