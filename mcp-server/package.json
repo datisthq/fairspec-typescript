@@ -1,6 +1,6 @@
 {
   "name": "@fairspec/mcp-server",
-  "version": "0.0.0-dev",
+  "version": "0.13.0",
   "description": "Fairspec TypeScript is a fast data management framework built on top of the Fairspec standard and Polars DataFrames",
   "keywords": [
     "ai",
