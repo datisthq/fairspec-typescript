@@ -2,7 +2,7 @@
 
 TypeScript pnpm monorepo — a data management framework built on the Fairspec standard and
 Polars DataFrames: metadata models, a table engine with per-format plugins, dataset source
-plugins, a CLI and an MCP server. (Also read by Claude Code via `.claude/CLAUDE.md`.)
+plugins, a CLI and an MCP server.
 
 ## Rules
 
@@ -18,13 +18,13 @@ plugins, a CLI and an MCP server. (Also read by Claude Code via `.claude/CLAUDE.
 
 ## Skills
 
-Depth lives in `.agents/skills/` (reached by Claude Code through the `.claude/skills` symlink), so
+Depth lives in `.agents/skills/` (reached by Claude Code through the `.claude/skills` symlink `pnpm install` creates), so
 this file carries invariants and the skills carry procedure. Reach for one before working in
 its area. Each is named `<subject>-<facet>`, subject first (`change-review`):
 
-| skill            | when                                                          |
-| ---------------- | ------------------------------------------------------------- |
-| `change-review`  | reviewing a pull request — also what the review workflow runs |
+| skill           | when                                                          |
+| --------------- | ------------------------------------------------------------- |
+| `change-review` | reviewing a pull request — also what the review workflow runs |
 
 ## Commands
 

@@ -13,7 +13,7 @@
     "format": "vp fmt --no-error-on-unmatched-pattern",
     "leaks": "gitleaks git --config=.gitleaks.toml --verbose --redact",
     "lint": "vp fmt --check && vp lint",
-    "prepare": "lefthook install",
+    "prepare": "lefthook install && mkdir -p .claude && ln -sfn ../.agents/skills .claude/skills",
     "preview": "livemark preview",
     "release": "pnpm -r publish --access public --ignore-scripts --no-git-checks",
     "scan": "pnpm leaks && pnpm vulns",
