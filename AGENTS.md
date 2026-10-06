@@ -18,13 +18,13 @@ plugins, a CLI and an MCP server. (Also read by Claude Code via `.claude/CLAUDE.
 
 ## Skills
 
-Depth lives in `project/skills/` (reached by Claude Code through the `.claude/skills` symlink), so
+Depth lives in `.agents/skills/` (reached by Claude Code through the `.claude/skills` symlink), so
 this file carries invariants and the skills carry procedure. Reach for one before working in
-its area:
+its area. Each is named `<subject>-<facet>`, subject first (`change-review`):
 
 | skill            | when                                                          |
 | ---------------- | ------------------------------------------------------------- |
-| `review-changes` | reviewing a pull request — also what the review workflow runs |
+| `change-review`  | reviewing a pull request — also what the review workflow runs |
 
 ## Commands
 
@@ -59,7 +59,7 @@ metadata ─┬─► dataset ───┐
 - `mcp-server` — MCP tools over the library actions, served over stdio as `fairspec mcp`.
 - `terminal` — the `fairspec` CLI (commander), one command group per entity.
 - `fairspec` — umbrella package re-exporting `@fairspec/library` and shipping the CLI binary.
-- `project` — the documentation site in `docs/`, the agent skills in `skills/` (reached as `.claude/skills`), and the docs guard in `-test/`. Private and outside the DAG: nothing depends on it, which is why the skills live here rather than in a package something imports.
+- `project` — the documentation site in `docs/` and the docs guard in `-test/`. Private and outside the DAG: nothing depends on it.
 
 ## Code structure
 
