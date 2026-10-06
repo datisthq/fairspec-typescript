@@ -15,6 +15,7 @@ plugins, a CLI and an MCP server.
 - Run type checking, specs and linting as part of your tasks
 - Start a plan from a new/updated API summary (models/signatures) and the most challenging points, then continue with your default settings
 - Update docs when a change requires it
+- **After every task, check whether a skill in `.agents/skills/` needs updating, and update it in the same commit.** Read the task description for what it taught: a new convention, a correction to how the work was done, or a decision about how an area should look or behave. Write that into the skill for that area, so the next session follows it without being told again. When no skill covers the area and the lesson will recur, add one.
 
 ## Skills
 
